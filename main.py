@@ -1,26 +1,44 @@
 # Do not modify these lines
-__winc_id__ = '71dd124b4a6e4d268f5973db521394ee'
-__human_name__ = 'strings'
+__winc_id__ = '7b9401ad7f544be2a23321292dd61cb6'
+__human_name__ = 'arguments'
 
 # Add your code after this line
-scorer_0 = 'Ruud Gullit'
-scorer_1 = 'Marco van Basten'
-goal_0 = 32
-goal_1 = 54
-scorers = scorer_0 + " " + str(goal_0) + "," + " " + scorer_1 + " " + str(goal_1)
-report = f'{scorer_0} scored in the {goal_0}nd minute\n{scorer_1} scored in the {goal_1}th minute'
 
-player = 'Ruud Gullit'
-first_name = player[:player.find(" ")]
-last_name_len = len(player[player.find(" "):-1])
-name_short = player[0] + '.' + player[player.find(" "):]
-chant = (first_name + "!" + " ") * (len(first_name)-1) + first_name + "!"
-good_chant = chant[-1] != " "
-print(good_chant)
+#part1_greet_template
 
+def greet(name, greeting = 'Hello, <name>!') :
+    if '<name>' in greeting:
+        greeting = greeting.replace('<name>', name)
+        print(f'{greeting}')
+    return print
 
+print(greet('Doc'))
+print(greet('Bob', "What's up, <name>!"))
+print(greet('Dan', 'How are you <name>?'))
 
+#part2_force
+def force (mass, body='earth') :
+    gravity = {'sun' : 274,
+                'jupiter' : 24.92,
+                'neptune' : 11.15,
+                'saturn' : 10.44,
+                'earth' : 9.798,
+                'uranus' : 8.87,
+                'venus' : 8.87,
+                'mars' : 3.71,
+                'mercury' : 3.7,
+                'moon' : 1.62,
+                'pluto' : 0.58,
+                }
+    print(mass * round(gravity[body], 1))
+    return print
 
+print(force(1,'earth'))
 
+# Part 3: Gravity
+def pull(m1, m2 , d):
+    G = 6.674  * (10 ** -11)
+    print(G*((m1 * m2) / d ** 2))
+    return print
 
-
+print(pull(800, 1500, 3))
